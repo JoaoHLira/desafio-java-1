@@ -1,4 +1,4 @@
-package br.com.joaolira.desafiojava1.application.api;
+package br.com.joaolira.desafiojava1.cliente.application.api;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
