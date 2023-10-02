@@ -28,14 +28,23 @@ public class Cliente {
     @NotNull
     private Integer dataNascimento;
     @NotBlank
-    private Endereco endereco;
+    private Integer cep;
+    @NotBlank
+    private String cidade;
+    @NotBlank
+    private String logradouro;
+    @NotBlank
+    private Integer numero;
 
-    public Cliente(UUID idCliente, String nomeCompleto, String email, @NotNull Integer dataNascimento,
-                   Endereco endereco) {
+    public Cliente(UUID idCliente, String nomeCompleto, String email, @NotNull Integer dataNascimento, Integer cep,
+                   String cidade, String logradouro, Integer numero) {
         this.idCliente = idCliente;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.logradouro = logradouro;
+        this.numero = numero;
     }
 }
