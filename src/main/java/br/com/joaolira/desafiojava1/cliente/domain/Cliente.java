@@ -10,6 +10,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -25,11 +27,11 @@ public class Cliente {
     @Email
     @NotBlank
     private String email;
-    @NotNull
-    private Integer dataNascimento;
+    @NotBlank
+    private LocalDate dataNascimento;
 
 
-    public Cliente(UUID idCliente, String nomeCompleto, String email, @NotNull Integer dataNascimento) {
+    public Cliente(UUID idCliente, String nomeCompleto, String email, LocalDate dataNascimento) {
         this.idCliente = idCliente;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
