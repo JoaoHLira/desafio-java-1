@@ -1,5 +1,6 @@
 package br.com.joaolira.desafiojava1.cliente.domain;
 
+import br.com.joaolira.desafiojava1.cliente.application.api.ClienteRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,11 +31,10 @@ public class Cliente {
     @NotBlank
     private LocalDate dataNascimento;
 
-
-    public Cliente(UUID idCliente, String nomeCompleto, String email, LocalDate dataNascimento) {
-        this.idCliente = idCliente;
-        this.nomeCompleto = nomeCompleto;
-        this.email = email;
-        this.dataNascimento = dataNascimento;
+    public Cliente (ClienteRequest clienteRequest) {
+        this.nomeCompleto = clienteRequest.getNomeCompleto();
+        this.email = clienteRequest.getEmail();
+        this.dataNascimento = clienteRequest.getDataNascimento();
     }
+
 }
