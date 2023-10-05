@@ -1,6 +1,5 @@
 package br.com.joaolira.desafiojava1.cliente.infra;
 
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteListResponse;
 import br.com.joaolira.desafiojava1.cliente.application.repository.ClienteRepository;
 import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -24,10 +23,10 @@ public class ClienteInfraRepository implements ClienteRepository {
     }
 
     @Override
-    public List<ClienteListResponse> buscaTodosClientes() {
+    public List<Cliente> buscaTodosClientes() {
         log.info("[inicia] ClienteInfraRepository - buscaTodosClientes");
-        
+        List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
         log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
-        return null;
+        return todosClientes;
     }
 }
