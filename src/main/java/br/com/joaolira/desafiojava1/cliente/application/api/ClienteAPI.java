@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/cliente")
@@ -17,4 +18,8 @@ public interface ClienteAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<ClienteListResponse> getTodosClientes();
+
+    @GetMapping("/{idCliente}")
+    @ResponseStatus(code = HttpStatus.OK)
+    ClienteDetalhadoResponse getClienteAtravesId(@PathVariable UUID idCliente);
 }
