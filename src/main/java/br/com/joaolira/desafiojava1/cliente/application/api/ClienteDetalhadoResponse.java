@@ -1,5 +1,6 @@
 package br.com.joaolira.desafiojava1.cliente.application.api;
 
+import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
 import lombok.Value;
 
 import java.time.LocalDate;
@@ -12,4 +13,12 @@ public class ClienteDetalhadoResponse {
     private String nomeCompleto;
     private String email;
     private LocalDate dataNascimento;
+
+    public ClienteDetalhadoResponse(Cliente cliente) {
+        this.idCliente = cliente.getIdCliente();
+        this.nomeCompleto = cliente.getNomeCompleto();
+        this.email = cliente.getEmail();
+        this.dataNascimento = cliente.getDataNascimento();
+
+    }
 }

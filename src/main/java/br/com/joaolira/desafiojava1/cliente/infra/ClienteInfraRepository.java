@@ -2,11 +2,14 @@ package br.com.joaolira.desafiojava1.cliente.infra;
 
 import br.com.joaolira.desafiojava1.cliente.application.repository.ClienteRepository;
 import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
+import br.com.joaolira.desafiojava1.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -28,5 +31,14 @@ public class ClienteInfraRepository implements ClienteRepository {
         List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
         log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
         return todosClientes;
+    }
+
+    @Override
+    public Cliente buscaClienteAtravesId(UUID idCliente) {
+        log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
+        Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
+        log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
+        return cliente;
     }
 }
