@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.cliente.application.api;
 
 import br.com.joaolira.desafiojava1.cliente.application.service.ClienteService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,5 +39,12 @@ public class ClienteController implements ClienteAPI {
         ClienteDetalhadoResponse clienteDetalhado = clienteService.buscaClienteAtravesId(idCliente);
         log.info("[finaliza] ClienteController - getClienteAtravesId");
         return clienteDetalhado;
+    }
+
+    @Override
+    public void PatchAlteraCliente(UUID idCliente, @Valid ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        log.info("[inicia] ClienteController - patchAlteraCliente");
+        log.info("[finaliza] ClienteController - patchAlteraCliente");
+
     }
 }

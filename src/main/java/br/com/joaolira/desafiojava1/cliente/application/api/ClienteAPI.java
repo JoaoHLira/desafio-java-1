@@ -22,4 +22,9 @@ public interface ClienteAPI {
     @GetMapping("/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
     ClienteDetalhadoResponse getClienteAtravesId(@PathVariable UUID idCliente);
+    @PatchMapping(value = "/{idCliente}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void PatchAlteraCliente(@PathVariable UUID idCliente,
+                            @Valid ClienteAlteracaoRequest clienteAlteracaoRequest);
+
 }
