@@ -27,6 +27,7 @@ public class Endereco {
     private String cidade;
     private LocalDateTime dataHoraCadastro;
     private LocalDateTime dataHoraUltimaAlteracao;
+    private StatusEndereco statusEndereco;
 
 
     public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
