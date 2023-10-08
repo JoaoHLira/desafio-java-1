@@ -2,7 +2,7 @@ package br.com.joaolira.desafiojava1.endereco.application.service;
 
 import br.com.joaolira.desafiojava1.cliente.application.repository.ClienteRepository;
 import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
-import br.com.joaolira.desafiojava1.endereco.application.api.EnderecoAPI;
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
@@ -48,5 +48,14 @@ public class EnderecoApplicationService implements EnderecoService {
         Endereco endereco = enderecoRepository.buscaEnderecoPorId(idEndereco);
         log.info("[finaliza] EnderecoApplicationService - buscaEnderecoPorId");
         return new DetalhaEnderecoResponse(endereco);
+    }
+
+    @Override
+    public void patchAlteraEndereco(Long idEndereco, EnderecoAlteracaoRequest enderecoAlteracaoRequest) {
+        log.info("[inicia] EnderecoApplicationService - patchAlteraEndereco");
+        Endereco endereco = enderecoRepository.buscaEnderecoPorId(idEndereco);
+        endereco.altera(enderecoAlteracaoRequest);
+        enderecoRepository.salva(endereco);
+        log.info("[finaliza] EnderecoApplicationService - patchAlteraEndereco");
     }
 }

@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.domain;
 
 import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -34,5 +35,14 @@ public class Endereco {
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
         this.dataHoraCadastro = LocalDateTime.now();
+    }
+
+    public void altera(EnderecoAlteracaoRequest enderecoRequest) {
+        this.logradouro = enderecoRequest.getLogradouro();
+        this.cep = enderecoRequest.getCep();
+        this.numero = enderecoRequest.getNumero();
+        this.cidade = enderecoRequest.getCidade();
+        this.dataHoraCadastro = LocalDateTime.now();
+
     }
 }

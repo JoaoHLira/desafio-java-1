@@ -16,5 +16,5 @@ public interface EnderecoService {
 
     DetalhaEnderecoResponse buscaEnderecoPorId(Long idEndereco);
 
-    void patchAlteraEndereco(UUID idEndereco, EnderecoAlteracaoRequest enderecoAlteracaoRequest);
+    void patchAlteraEndereco(Long idEndereco, EnderecoAlteracaoRequest enderecoAlteracaoRequest);
 }
