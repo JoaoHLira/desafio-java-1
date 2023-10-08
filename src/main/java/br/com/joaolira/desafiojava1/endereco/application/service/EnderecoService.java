@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.application.service;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 
@@ -11,4 +12,6 @@ public interface EnderecoService {
     EnderecoResponse criaEndereco(UUID idCliente, EnderecoRequest enderecoRequest);
 
     List<EnderecoListResponse> getEnderecosPorIdCliente(UUID idCliente);
+
+    DetalhaEnderecoResponse buscaEnderecoPorId(Long idEndereco);
 }

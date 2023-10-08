@@ -5,6 +5,7 @@ import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnd
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.service.EnderecoService;
+import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

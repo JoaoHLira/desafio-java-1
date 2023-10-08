@@ -8,4 +8,6 @@ public interface EnderecoRepository {
     Endereco salva(Endereco endereco);
 
     List<Endereco> buscaTodosEnderecos();
+
+    Endereco buscaEnderecoPorId(Long idEndereco);
 }
