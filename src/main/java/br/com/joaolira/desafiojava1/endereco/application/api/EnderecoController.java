@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.service.EnderecoService;
@@ -32,5 +33,13 @@ public class EnderecoController implements EnderecoAPI {
         List<EnderecoListResponse> endereco = enderecoService.getEnderecosPorIdCliente(idCliente);
         log.info("[finaliza] EnderecoController - EnderecoListResponse");
         return endereco;
+    }
+
+    @Override
+    public DetalhaEnderecoResponse detalhaEndereco(Long idEndereco) {
+        log.info("[inicia] EnderecoController - DetalhaEnderecoResponse");
+        DetalhaEnderecoResponse detalhaEndereco = enderecoService.buscaEnderecoPorId(idEndereco);
+        log.info("[finaliza] EnderecoController - DetalhaEnderecoResponse");
+        return detalhaEndereco;
     }
 }

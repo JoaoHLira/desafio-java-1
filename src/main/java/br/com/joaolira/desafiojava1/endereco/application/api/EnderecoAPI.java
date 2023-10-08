@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import jakarta.validation.Valid;
@@ -22,4 +23,8 @@ public interface EnderecoAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
+    @GetMapping("/{idEndereco}")
+    @ResponseStatus(code = HttpStatus.OK)
+    DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
+
 }
