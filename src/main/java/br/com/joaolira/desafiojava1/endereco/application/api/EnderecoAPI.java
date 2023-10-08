@@ -21,5 +21,5 @@ public interface EnderecoAPI {
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<EnderecoListResponse> getEnderecosPorIdCliente();
+    List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
 }
