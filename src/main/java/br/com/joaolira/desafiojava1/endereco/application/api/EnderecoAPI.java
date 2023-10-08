@@ -31,6 +31,6 @@ public interface EnderecoAPI {
 
     @PatchMapping("/altera/{idEndereco}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void PatchAlteraEndereco(@PathVariable UUID idEndereco,
+    void PatchAlteraEndereco(@PathVariable Long idEndereco,
                              @Valid @RequestBody EnderecoAlteracaoRequest enderecoAlteracaoRequest);
 }
