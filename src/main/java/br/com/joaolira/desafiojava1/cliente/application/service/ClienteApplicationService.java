@@ -1,9 +1,6 @@
 package br.com.joaolira.desafiojava1.cliente.application.service;
 
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteDetalhadoResponse;
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteListResponse;
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteRequest;
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteResponse;
+import br.com.joaolira.desafiojava1.cliente.application.api.*;
 import br.com.joaolira.desafiojava1.cliente.application.repository.ClienteRepository;
 import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
@@ -43,5 +40,14 @@ public class ClienteApplicationService implements ClienteService {
         Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
         log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
         return new ClienteDetalhadoResponse(cliente);
+    }
+
+    @Override
+    public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        log.info("[inicia] ClienteApplicationService - patchAlteraCliente");
+        Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+        cliente.altera(clienteAlteracaoRequest);
+        clienteRepository.salva(cliente);
+        log.info("[finaliza] ClienteApplicationService - patchAlteraCliente");
     }
 }

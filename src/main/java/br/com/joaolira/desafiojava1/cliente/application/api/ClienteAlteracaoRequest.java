@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.cliente.application.api;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Value;
 
 import java.time.LocalDate;
