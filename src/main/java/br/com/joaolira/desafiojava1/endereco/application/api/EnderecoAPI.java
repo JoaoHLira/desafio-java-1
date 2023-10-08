@@ -1,5 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
+import br.com.joaolira.desafiojava1.cliente.application.api.ClienteAlteracaoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
@@ -27,4 +29,6 @@ public interface EnderecoAPI {
     @ResponseStatus(code = HttpStatus.OK)
     DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
 
+    void PatchAlteraEndereco(@PathVariable UUID idEndereco,
+                             @Valid @RequestBody EnderecoAlteracaoRequest enderecoAlteracaoRequest);
 }

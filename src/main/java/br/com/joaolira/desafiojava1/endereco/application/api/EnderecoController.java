@@ -1,5 +1,6 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
@@ -42,5 +43,12 @@ public class EnderecoController implements EnderecoAPI {
         DetalhaEnderecoResponse detalhaEndereco = enderecoService.buscaEnderecoPorId(idEndereco);
         log.info("[finaliza] EnderecoController - DetalhaEnderecoResponse");
         return detalhaEndereco;
+    }
+
+    @Override
+    public void PatchAlteraEndereco(UUID idEndereco, EnderecoAlteracaoRequest enderecoAlteracaoRequest) {
+        log.info("[inicia] EnderecoController - PatchAlteraEndereco");
+        enderecoService.patchAlteraEndereco(idEndereco, enderecoAlteracaoRequest);
+        log.info("[finaliza] EnderecoController - PatchAlteraEndereco");
     }
 }

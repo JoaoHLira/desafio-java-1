@@ -27,6 +27,7 @@ public class Endereco {
     private LocalDateTime dataHoraCadastro;
     private LocalDateTime dataHoraUltimaAlteracao;
 
+
     public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
         this.logradouro = enderecoRequest.getLogradouro();
         this.cep = enderecoRequest.getCep();
