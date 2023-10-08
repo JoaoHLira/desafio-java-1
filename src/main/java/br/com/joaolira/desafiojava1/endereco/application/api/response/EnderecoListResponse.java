@@ -10,12 +10,14 @@ import java.util.stream.Collectors;
 public class EnderecoListResponse {
 
     private Long idEndereco;
+    private String logradouro;
     private Integer cep;
     private Integer numero;
     private String cidade;
 
     public EnderecoListResponse(Endereco endereco) {
         this.idEndereco = endereco.getIdEndereco();
+        this.logradouro = endereco.getLogradouro();
         this.cep = endereco.getCep();
         this.numero = endereco.getNumero();
         this.cidade = endereco.getCidade();
