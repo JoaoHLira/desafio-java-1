@@ -27,7 +27,6 @@ public class Endereco {
     private String cidade;
     private LocalDateTime dataHoraCadastro;
     private LocalDateTime dataHoraUltimaAlteracao;
-    private StatusEndereco statusEndereco;
 
 
     public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
@@ -43,7 +42,6 @@ public class Endereco {
         this.cep = enderecoRequest.getCep();
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
-        this.dataHoraCadastro = LocalDateTime.now();
-
+        this.dataHoraUltimaAlteracao = LocalDateTime.now();
     }
 }
