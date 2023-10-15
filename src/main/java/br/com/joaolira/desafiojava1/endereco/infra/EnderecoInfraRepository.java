@@ -1,5 +1,6 @@
 package br.com.joaolira.desafiojava1.endereco.infra;
 
+import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
 import br.com.joaolira.desafiojava1.endereco.application.repository.EnderecoRepository;
 import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import br.com.joaolira.desafiojava1.handler.APIException;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -27,8 +29,9 @@ public class EnderecoInfraRepository implements EnderecoRepository {
     }
 
     @Override
-    public List<Endereco> buscaTodosEnderecos() {
+    public List<Endereco> buscaTodosEnderecos(UUID clientePorId) {
         log.info("[inicia] EnderecoInfraRepository - buscaTodosEnderecos");
+        UUID idCliente = clientePorId;
         List<Endereco> todosEnderecos = enderecoSpringDataJPARepository.findAll();
         log.info("[finaliza] EnderecoInfraRepository - buscaTodosEnderecos");
         return todosEnderecos;
