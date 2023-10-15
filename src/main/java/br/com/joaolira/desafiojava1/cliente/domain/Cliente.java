@@ -13,6 +13,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -31,6 +32,17 @@ public class Cliente {
     private String email;
     private LocalDate dataNascimento;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "idEndereco", unique = true, nullable = false, updatable = false)
+    private Long idEndereco;
+    private String logradouro;
+    private Integer cep;
+    private Integer numero;
+    private String cidade;
+    private LocalDateTime dataHoraCadastro;
+    private LocalDateTime dataHoraUltimaAlteracao;
+    
     public Cliente (ClienteRequest clienteRequest) {
         this.nomeCompleto = clienteRequest.getNomeCompleto();
         this.email = clienteRequest.getEmail();
