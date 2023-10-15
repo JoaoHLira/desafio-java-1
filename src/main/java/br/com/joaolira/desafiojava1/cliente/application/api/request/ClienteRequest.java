@@ -1,4 +1,4 @@
-package br.com.joaolira.desafiojava1.cliente.application.api;
+package br.com.joaolira.desafiojava1.cliente.application.api.request;
 
 import lombok.Value;
 import java.time.LocalDate;

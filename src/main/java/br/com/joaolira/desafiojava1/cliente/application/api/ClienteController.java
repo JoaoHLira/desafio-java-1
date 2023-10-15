@@ -1,7 +1,11 @@
 package br.com.joaolira.desafiojava1.cliente.application.api;
 
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteAlteracaoRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteDetalhadoResponse;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteListResponse;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteResponse;
 import br.com.joaolira.desafiojava1.cliente.application.service.ClienteService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

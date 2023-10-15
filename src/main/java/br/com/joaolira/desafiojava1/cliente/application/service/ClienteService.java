@@ -1,6 +1,10 @@
 package br.com.joaolira.desafiojava1.cliente.application.service;
 
-import br.com.joaolira.desafiojava1.cliente.application.api.*;
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteAlteracaoRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteDetalhadoResponse;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteListResponse;
+import br.com.joaolira.desafiojava1.cliente.application.api.response.ClienteResponse;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package br.com.joaolira.desafiojava1.cliente.application.api;
+package br.com.joaolira.desafiojava1.cliente.application.api.request;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

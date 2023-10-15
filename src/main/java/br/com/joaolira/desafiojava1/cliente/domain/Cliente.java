@@ -1,16 +1,14 @@
 package br.com.joaolira.desafiojava1.cliente.domain;
 
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteAlteracaoRequest;
-import br.com.joaolira.desafiojava1.cliente.application.api.ClienteRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteAlteracaoRequest;
+import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.time.LocalDate;
 import java.util.UUID;

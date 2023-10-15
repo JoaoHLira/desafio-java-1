@@ -1,4 +1,4 @@
-package br.com.joaolira.desafiojava1.cliente.application.api;
+package br.com.joaolira.desafiojava1.cliente.application.api.response;
 
 import lombok.Builder;
 import lombok.Value;
