@@ -2,9 +2,11 @@ package br.com.joaolira.desafiojava1.cliente.domain;
 
 import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteRequest;
+import br.com.joaolira.desafiojava1.endereco.domain.StatusEndereco;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,11 +30,23 @@ public class Cliente {
     @Email
     private String email;
     private LocalDate dataNascimento;
+    private String logradouro;
+    private Integer cep;
+    private Integer numero;
+    private String cidade;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private StatusEndereco status;
 
     public Cliente (ClienteRequest clienteRequest) {
         this.nomeCompleto = clienteRequest.getNomeCompleto();
         this.email = clienteRequest.getEmail();
         this.dataNascimento = clienteRequest.getDataNascimento();
+        this.logradouro = clienteRequest.getLogradouro();
+        this.cep = clienteRequest.getCep();
+        this.numero = clienteRequest .getNumero();
+        this.cidade = clienteRequest.getCidade();
+        this.status = clienteRequest.getStatus();
     }
 
     public void altera(ClienteAlteracaoRequest clienteRequest) {
