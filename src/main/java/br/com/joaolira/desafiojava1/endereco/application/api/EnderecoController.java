@@ -6,7 +6,6 @@ import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnd
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.service.EnderecoService;
-import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +49,12 @@ public class EnderecoController implements EnderecoAPI {
         log.info("[inicia] EnderecoController - PatchAlteraEndereco");
         enderecoService.patchAlteraEndereco(idEndereco, enderecoAlteracaoRequest);
         log.info("[finaliza] EnderecoController - PatchAlteraEndereco");
+    }
+
+    @Override
+    public void mudaStatusParaPricipal(Long idEndereco) {
+        log.info("[inicia] EnderecoController - postStatusEndereco");
+        enderecoService.mudaStatusEndereco(idEndereco);
+        log.info("[finaliza] EnderecoController - postStatusEndereco");
     }
 }

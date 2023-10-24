@@ -58,4 +58,13 @@ public class EnderecoApplicationService implements EnderecoService {
         enderecoRepository.salva(endereco);
         log.info("[finaliza] EnderecoApplicationService - patchAlteraEndereco");
     }
+
+    @Override
+    public void mudaStatusEndereco(Long idEndereco) {
+        log.info("[inicia] EnderecoApplicationService - mudaStatusEndereco");
+        Endereco endereco = enderecoRepository.buscaEnderecoPorId(idEndereco);
+        endereco.mudaStatusEndereco();
+        enderecoRepository.salva(endereco);
+        log.info("[finaliza] EnderecoApplicationService - mudaStatusEndereco");
+    }
 }

@@ -20,16 +20,17 @@ public interface EnderecoAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     EnderecoResponse postEndereco(@PathVariable UUID idCliente,
                                   @Valid @RequestBody EnderecoRequest enderecoRequest);
-
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
     @GetMapping("/{idEndereco}")
     @ResponseStatus(code = HttpStatus.OK)
     DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
-
     @PatchMapping("/altera/{idEndereco}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void PatchAlteraEndereco(@PathVariable Long idEndereco,
                              @Valid @RequestBody EnderecoAlteracaoRequest enderecoAlteracaoRequest);
+    @PostMapping("/status/{idEndereco}")
+    @ResponseStatus(code = HttpStatus.OK)
+    void mudaStatusParaPricipal(@PathVariable Long idEndereco);
 }

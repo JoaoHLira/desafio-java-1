@@ -4,13 +4,11 @@ import br.com.joaolira.desafiojava1.cliente.domain.Cliente;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -27,6 +25,7 @@ public class Endereco {
     private String cidade;
     private LocalDateTime dataHoraCadastro;
     private LocalDateTime dataHoraUltimaAlteracao;
+    private StatusEndereco statusEndereco = StatusEndereco.SECUNDARIO;
 
 
     public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
@@ -35,6 +34,7 @@ public class Endereco {
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
         this.dataHoraCadastro = LocalDateTime.now();
+        this.statusEndereco = getStatusEndereco();
     }
 
     public void altera(EnderecoAlteracaoRequest enderecoRequest) {
@@ -43,5 +43,10 @@ public class Endereco {
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();
         this.dataHoraUltimaAlteracao = LocalDateTime.now();
+        this.statusEndereco = getStatusEndereco();
+    }
+
+    public void mudaStatusEndereco() {
+        this.statusEndereco = StatusEndereco.PRINCIPAL;
     }
 }
