@@ -30,23 +30,11 @@ public class Cliente {
     @Email
     private String email;
     private LocalDate dataNascimento;
-    private String logradouro;
-    private Integer cep;
-    private Integer numero;
-    private String cidade;
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private StatusEndereco status;
 
     public Cliente (ClienteRequest clienteRequest) {
         this.nomeCompleto = clienteRequest.getNomeCompleto();
         this.email = clienteRequest.getEmail();
         this.dataNascimento = clienteRequest.getDataNascimento();
-        this.logradouro = clienteRequest.getLogradouro();
-        this.cep = clienteRequest.getCep();
-        this.numero = clienteRequest .getNumero();
-        this.cidade = clienteRequest.getCidade();
-        this.status = clienteRequest.getStatus();
     }
 
     public void altera(ClienteAlteracaoRequest clienteRequest) {
