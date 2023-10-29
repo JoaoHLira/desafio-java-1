@@ -3,7 +3,6 @@ package br.com.joaolira.desafiojava1.endereco.infra;
 import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import br.com.joaolira.desafiojava1.endereco.domain.StatusEndereco;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;

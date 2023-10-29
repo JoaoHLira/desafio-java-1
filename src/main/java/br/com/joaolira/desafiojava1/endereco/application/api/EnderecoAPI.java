@@ -1,12 +1,10 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
-import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPrincipalRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
-import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

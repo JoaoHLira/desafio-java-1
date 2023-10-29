@@ -1,7 +1,5 @@
 package br.com.joaolira.desafiojava1.endereco.infra;
 
-import br.com.joaolira.desafiojava1.cliente.infra.ClienteSpringDataJPARepository;
-import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPrincipalRequest;
 import br.com.joaolira.desafiojava1.endereco.application.repository.EnderecoRepository;
 import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import br.com.joaolira.desafiojava1.endereco.domain.StatusEndereco;

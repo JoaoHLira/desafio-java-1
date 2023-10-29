@@ -5,7 +5,6 @@ import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoReq
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
-import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 
 import java.util.List;
 import java.util.UUID;
