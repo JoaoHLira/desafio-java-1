@@ -1,9 +1,11 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPrincipalRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
+import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoPrincipalResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.service.EnderecoService;
 import lombok.RequiredArgsConstructor;
@@ -56,5 +58,10 @@ public class EnderecoController implements EnderecoAPI {
         log.info("[inicia] EnderecoController - postStatusEndereco");
         enderecoService.mudaStatusEndereco(idEndereco);
         log.info("[finaliza] EnderecoController - postStatusEndereco");
+    }
+
+    @Override
+    public EnderecoPrincipalResponse getEnderecoPrincipal( UUID idCliente, EnderecoPrincipalRequest enderecoPrincipalRequest) {
+        return null;
     }
 }

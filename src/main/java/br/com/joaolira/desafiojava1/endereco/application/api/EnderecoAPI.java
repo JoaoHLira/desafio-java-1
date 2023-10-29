@@ -1,9 +1,11 @@
 package br.com.joaolira.desafiojava1.endereco.application.api;
 
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoAlteracaoRequest;
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPrincipalRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
+import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoPrincipalResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -23,12 +25,9 @@ public interface EnderecoAPI {
     @GetMapping("/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
-<<<<<<< HEAD
+
     @GetMapping("/{idCliente}/{idEndereco}")
-=======
->>>>>>> e87da657da26228e3accedb921a9a10e1642783e
     @ResponseStatus(code = HttpStatus.OK)
-    @GetMapping("/{idEndereco}")
     DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
     @PatchMapping("/{idCliente}/altera/{idEndereco}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -37,4 +36,9 @@ public interface EnderecoAPI {
     @PostMapping("/{idCliente}/status/{idEndereco}")
     @ResponseStatus(code = HttpStatus.OK)
     void mudaStatusParaPricipal(@PathVariable Long idEndereco);
+
+    @GetMapping("/{idCliente}/principal")
+    @ResponseStatus(code = HttpStatus.OK)
+    EnderecoPrincipalResponse getEnderecoPrincipal(@PathVariable UUID idCliente,
+                                                   @Valid @RequestBody EnderecoPrincipalRequest enderecoPrincipalRequest);
 }
