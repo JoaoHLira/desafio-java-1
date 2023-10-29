@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface EnderecoRepository {
     Endereco salva(Endereco endereco);
 
-    List<Endereco> buscaTodosEnderecos();
+    List<Endereco> buscaTodosEnderecos(UUID idCliente);
 
     Endereco buscaEnderecoPorId(Long idEndereco);
 }
