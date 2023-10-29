@@ -8,5 +8,4 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ClienteSpringDataJPARepository extends JpaRepository<Cliente, UUID> {
-    List<Endereco> findEnderecoById(UUID idCliente);
 }

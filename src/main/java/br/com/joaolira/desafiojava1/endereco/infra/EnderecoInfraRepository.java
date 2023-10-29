@@ -17,7 +17,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class EnderecoInfraRepository implements EnderecoRepository {
     private final EnderecoSpringDataJPARepository enderecoSpringDataJPARepository;
-    private final ClienteSpringDataJPARepository clienteSpringDataJPARepository;
     @Override
     public Endereco salva(Endereco endereco) {
         log.info("[inicia] EnderecoInfraRepository - salva");
@@ -29,7 +28,7 @@ public class EnderecoInfraRepository implements EnderecoRepository {
     @Override
     public List<Endereco> buscaTodosEnderecos(UUID idCliente) {
         log.info("[inicia] EnderecoInfraRepository - buscaTodosEnderecos");
-        List<Endereco> todosEnderecos = clienteSpringDataJPARepository.findEnderecoById(idCliente);
+        List<Endereco> todosEnderecos = enderecoSpringDataJPARepository.findAll();
         log.info("[finaliza] EnderecoInfraRepository - buscaTodosEnderecos");
         return todosEnderecos;
     }
