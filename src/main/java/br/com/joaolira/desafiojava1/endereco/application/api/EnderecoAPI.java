@@ -23,8 +23,12 @@ public interface EnderecoAPI {
     @GetMapping("/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
+<<<<<<< HEAD
     @GetMapping("/{idCliente}/{idEndereco}")
+=======
+>>>>>>> e87da657da26228e3accedb921a9a10e1642783e
     @ResponseStatus(code = HttpStatus.OK)
+    @GetMapping("/{idEndereco}")
     DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
     @PatchMapping("/{idCliente}/altera/{idEndereco}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
