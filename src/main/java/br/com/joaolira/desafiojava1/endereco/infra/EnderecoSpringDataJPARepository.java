@@ -11,4 +11,6 @@ import java.util.UUID;
 
 public interface EnderecoSpringDataJPARepository extends JpaRepository<Endereco, Long> {
     Optional<Endereco> findByIdClienteAndStatusEndereco(UUID idCliente, StatusEndereco statusEndereco);
+
+    List<Endereco> findEnderecosByIdCliente(UUID idCliente);
 }
