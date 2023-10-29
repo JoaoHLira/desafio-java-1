@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -25,11 +26,18 @@ public class Endereco {
     private String cidade;
     private LocalDateTime dataHoraCadastro;
     private LocalDateTime dataHoraUltimaAlteracao;
+    @Enumerated(EnumType.STRING)
     private StatusEndereco statusEndereco = StatusEndereco.SECUNDARIO;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-    public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
+    private UUID idCliente;
+
+    public Endereco(UUID idCliente, EnderecoRequest enderecoRequest) {
         this.logradouro = enderecoRequest.getLogradouro();
+        this.idCliente = idCliente;
         this.cep = enderecoRequest.getCep();
         this.numero = enderecoRequest.getNumero();
         this.cidade = enderecoRequest.getCidade();

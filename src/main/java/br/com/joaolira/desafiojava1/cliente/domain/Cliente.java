@@ -2,6 +2,7 @@ package br.com.joaolira.desafiojava1.cliente.domain;
 
 import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.joaolira.desafiojava1.cliente.application.api.request.ClienteRequest;
+import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import br.com.joaolira.desafiojava1.endereco.domain.StatusEndereco;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -30,6 +32,9 @@ public class Cliente {
     @Email
     private String email;
     private LocalDate dataNascimento;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
+    List<Endereco> enderecos;
 
     public Cliente (ClienteRequest clienteRequest) {
         this.nomeCompleto = clienteRequest.getNomeCompleto();
