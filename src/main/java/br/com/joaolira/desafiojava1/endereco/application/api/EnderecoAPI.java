@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/endereco/{idCliente}")
+@RequestMapping("/v1/endereco/")
 public interface EnderecoAPI {
 
-    @PostMapping
+    @PostMapping("/{idCliente}")
     @ResponseStatus(code = HttpStatus.CREATED)
     EnderecoResponse postEndereco(@PathVariable UUID idCliente,
                                   @Valid @RequestBody EnderecoRequest enderecoRequest);
-    @GetMapping
+    @GetMapping("/{idCliente}")
     @ResponseStatus(code = HttpStatus.OK)
     List<EnderecoListResponse> getEnderecosPorIdCliente(@PathVariable UUID idCliente);
-    @GetMapping("/{idEndereco}")
+    @GetMapping("/{idCliente}/{idEndereco}")
     @ResponseStatus(code = HttpStatus.OK)
     DetalhaEnderecoResponse detalhaEndereco(@PathVariable Long idEndereco);
-    @PatchMapping("/altera/{idEndereco}")
+    @PatchMapping("/{idCliente}/altera/{idEndereco}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void PatchAlteraEndereco(@PathVariable Long idEndereco,
                              @Valid @RequestBody EnderecoAlteracaoRequest enderecoAlteracaoRequest);
-    @PostMapping("/status/{idEndereco}")
+    @PostMapping("/{idCliente}/status/{idEndereco}")
     @ResponseStatus(code = HttpStatus.OK)
     void mudaStatusParaPricipal(@PathVariable Long idEndereco);
 }
