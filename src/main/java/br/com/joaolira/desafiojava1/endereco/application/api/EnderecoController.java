@@ -5,9 +5,9 @@ import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPri
 import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoRequest;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.DetalhaEnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoListResponse;
-import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoPrincipalResponse;
 import br.com.joaolira.desafiojava1.endereco.application.api.response.EnderecoResponse;
 import br.com.joaolira.desafiojava1.endereco.application.service.EnderecoService;
+import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,7 +61,10 @@ public class EnderecoController implements EnderecoAPI {
     }
 
     @Override
-    public EnderecoPrincipalResponse getEnderecoPrincipal( UUID idCliente, EnderecoPrincipalRequest enderecoPrincipalRequest) {
-        return null;
+    public DetalhaEnderecoResponse getEnderecoPrincipal(UUID idCliente) {
+        log.info("[inicia] EnderecoController - getEnderecoPrincipal");
+        DetalhaEnderecoResponse endereco = enderecoService.getEnderecoPrincipal(idCliente);
+        log.info("[finaliza] EnderecoController - getEnderecoPrincipal");
+        return endereco;
     }
 }

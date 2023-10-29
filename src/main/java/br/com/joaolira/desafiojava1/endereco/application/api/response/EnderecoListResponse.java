@@ -1,6 +1,7 @@
 package br.com.joaolira.desafiojava1.endereco.application.api.response;
 
 import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
+import br.com.joaolira.desafiojava1.endereco.domain.StatusEndereco;
 import lombok.Value;
 
 import java.time.LocalDateTime;
@@ -16,6 +17,7 @@ public class EnderecoListResponse {
     private Integer numero;
     private String cidade;
     private LocalDateTime dataHoraCadastro;
+    private StatusEndereco statusEndereco;
 
     public EnderecoListResponse(Endereco endereco) {
         this.idEndereco = endereco.getIdEndereco();
@@ -24,6 +26,7 @@ public class EnderecoListResponse {
         this.numero = endereco.getNumero();
         this.cidade = endereco.getCidade();
         this.dataHoraCadastro = LocalDateTime.now();
+        this.statusEndereco = endereco.getStatusEndereco();
     }
 
     public static List<EnderecoListResponse> converte(List<Endereco> enderecos) {

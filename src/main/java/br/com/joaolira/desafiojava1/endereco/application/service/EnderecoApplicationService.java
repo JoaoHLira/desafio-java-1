@@ -25,8 +25,8 @@ public class EnderecoApplicationService implements EnderecoService {
     @Override
     public EnderecoResponse criaEndereco(UUID idCliente, EnderecoRequest enderecoRequest) {
         log.info("[inicia] EnderecoApplicationService - criaEndereco");
-        Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
-        Endereco endereco = enderecoRepository.salva(new Endereco(cliente, enderecoRequest));
+//        Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+        Endereco endereco = enderecoRepository.salva(new Endereco(idCliente, enderecoRequest));
         log.info("[finaliza] EnderecoApplicationService - criaEndereco");
         return EnderecoResponse.builder()
                 .idEndereco(endereco.getIdEndereco())
@@ -65,5 +65,13 @@ public class EnderecoApplicationService implements EnderecoService {
         endereco.mudaStatusEndereco();
         enderecoRepository.salva(endereco);
         log.info("[finaliza] EnderecoApplicationService - mudaStatusEndereco");
+    }
+
+    @Override
+    public DetalhaEnderecoResponse getEnderecoPrincipal(UUID idCliente) {
+        log.info("[inicia] EnderecoApplicationService - getEnderecoPrincipal");
+        Endereco endereco = enderecoRepository.buscaEnderecoPrincipal(idCliente);
+        log.info("[finaliza] EnderecoApplicationService - getEnderecoPrincipal");
+        return new DetalhaEnderecoResponse(endereco);
     }
 }

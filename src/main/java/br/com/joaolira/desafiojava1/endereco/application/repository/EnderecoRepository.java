@@ -1,5 +1,6 @@
 package br.com.joaolira.desafiojava1.endereco.application.repository;
 
+import br.com.joaolira.desafiojava1.endereco.application.api.request.EnderecoPrincipalRequest;
 import br.com.joaolira.desafiojava1.endereco.domain.Endereco;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface EnderecoRepository {
     List<Endereco> buscaTodosEnderecos(UUID idCliente);
 
     Endereco buscaEnderecoPorId(Long idEndereco);
+
+    Endereco buscaEnderecoPrincipal(UUID idCliente);
 }
